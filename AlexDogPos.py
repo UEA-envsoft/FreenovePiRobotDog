@@ -88,19 +88,13 @@ class mywindow(QMainWindow,Ui_MainWindow):
         self.setTheServos()
 
     def setTheServos(self):
-        for i in range(2):  # these 4 sets of 3 angles (ie 12 angles) are now applied to the 12 leg servos
-            print ("setting " + str(4+i*3) + " to " + str(self.angles[i][0]))
-            self.servo.setServoAngle(4 + i * 3, self.angles[i][0] + self.calAngles[i][0])  # 4   7   Left shoulder   LReft Hip In/Out    servo 4 gets angle [0][0]    servo 7  gets [1][0]
-            print("setting " + str(3 + i * 3) + " to " + str(self.angles[i][1]))
-            self.servo.setServoAngle(3 + i * 3, 90 - (self.angles[i][1] + self.calAngles[i][1]))  # 3   6   Left shoulder   Left Hip  for/back       [0][1]    [1][1]
-            print("setting " + str(2 + i * 3) + " to " + str(self.angles[i][2]))
-            self.servo.setServoAngle(2 + i * 3, self.angles[i][2] + self.calAngles[i][2])  # 2   5  Left elbow     left knee   [0][2]    [1][2]
-            print("setting " + str(8 + i * 3) + " to " + str(self.angles[i+2][0]))
-            self.servo.setServoAngle(8 + i * 3, self.angles[i + 2][0] + self.calAngles[i+2][0])  # 8  11   right shoulder  right hip  in/out     [2][0]    [3][0]
-            print("setting " + str(9 + i * 3) + " to " + str(self.angles[i+2][1]))
-            self.servo.setServoAngle(9 + i * 3, 90 + self.angles[i + 2][1] + self.calAngles[i+2][1])  # 9  12  right shoulder  right hip  for/back     [2][1]    [3][1]
-            print("setting " + str(10 + i * 3) + " to " + str(self.angles[i+2][2]))
-            self.servo.setServoAngle(10 + i * 3, 180 - (self.angles[i + 2][2] + self.calAngles[i+2][2]))  # 10  13   right elbow    right knee     [2][2]    [3][2]
+        for i in range(2):
+            self.servo.setServoAngle(4 + i * 3, self.angles[i][0] + self.calAngles[i][0])                # 4   7   Left shoulder   Left Hip In/Out  servo 4 gets angle [0][0] servo 7  gets [1][0]
+            self.servo.setServoAngle(3 + i * 3, 90 - (self.angles[i][1] + self.calAngles[i][1]))         # 3   6   Left shoulder   Left Hip  for/back   [0][1]    [1][1]
+            self.servo.setServoAngle(2 + i * 3, self.angles[i][2] + self.calAngles[i][2])                # 2   5  Left elbow       left knee            [0][2]    [1][2]
+            self.servo.setServoAngle(8 + i * 3, self.angles[i + 2][0] + self.calAngles[i+2][0])          # 8  11   right shoulder  right hip  in/out    [2][0]    [3][0]
+            self.servo.setServoAngle(9 + i * 3, 90 + self.angles[i + 2][1] + self.calAngles[i+2][1])     # 9  12  right shoulder   right hip  for/back  [2][1]    [3][1]
+            self.servo.setServoAngle(10 + i * 3, 180 - (self.angles[i + 2][2] + self.calAngles[i+2][2])) # 10  13   right elbow    right knee           [2][2]    [3][2]
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
