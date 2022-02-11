@@ -1,23 +1,26 @@
 # FreenovePiRobotDog
 Useful files for the Freenove Robot Dog for Raspberry Pi   
 
-***************************************************************************************************************   
+<hr />
+<h3>Leg position tool</h3>
+  <pre>
+AlexDogPos.py                 a tool for converting leg angles to the freenove co-ordinate system  
+AlexsDogPosToolui.py  and  
+AlexsDogPosToolui.ui          Qt design files for above  
+spike_legs3.png               the image in the GUI   
+    </pre>
+Place AlexDogPos.py, AlexsDogPosToolui.py and spike_legs3.png in Server directory and run AlexDogPos.py  
   
-AlexDogPos.py               a tool for converting leg angles to the freenove co-ordinate system  
-AlexsDogPosToolui.py   and  AlexsDogPosToolui.ui    Qt design files for above  
-spike_legs3.png             the image in the GUI   
-   
-Place AlexDogPos.py, AlexsDogPosToolui.py and spike_legs3.png in Server directory and run AlexDogPos.py   
-  
-***************************************************************************************************************   
-
-rear board.STK              STL file of rear board courtesy of Freenove  
+<hr />
+<h3>STL files</h3>
+  <pre>
+rear board.STL              STL file of rear board courtesy of Freenove  
 tail-servo-mount-mg90s.stl  STL file for tail servo mount courtesy of Simon Khoury   
 SpikeHead.stl               STL file for an alternative head
-  
-***************************************************************************************************************   
-  
-Local wireless keyboard and wagging tail  
+</pre>  
+<hr />
+   
+<h3>Local wireless keyboard and wagging tail  </h3>
 Copy lclkbd.py control.py and actions.py to Server directory  
 Connect wireless keyboard and run lclkbd.py  
 NOTE: THERE IS NO TIME OUT ON THE SERVOS UNLIKE RUNNING THE SERVER  
