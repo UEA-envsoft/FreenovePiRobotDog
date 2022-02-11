@@ -13,6 +13,7 @@ Place AlexDogPos.py, AlexsDogPosToolui.py and spike_legs3.png in Server director
 
 rear board.STK              STL file of rear board courtesy of Freenove  
 tail-servo-mount-mg90s.stl  STL file for tail servo mount courtesy of Simon Khoury 
+SpikeHead.stl               STL file for an alternative head
   
 ***************************************************************************************************************   
   
