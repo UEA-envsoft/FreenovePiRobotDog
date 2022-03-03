@@ -2,17 +2,19 @@
 Useful files for the Freenove Robot Dog for Raspberry Pi   
 
 <hr />
-<h3>Leg position tool</h3>
+<h2>Leg position tool</h2>
   <pre>
 AlexDogPos.py                 a tool for converting leg angles to the freenove co-ordinate system  
+                              It can store four positions and transition smoothly between them.  
 AlexsDogPosToolui.py  and  
 AlexsDogPosToolui.ui          Qt design files for above  
 spike_legs3.png               the image in the GUI   
     </pre>
-Place AlexDogPos.py, AlexsDogPosToolui.py and spike_legs3.png in Server directory and run AlexDogPos.py  
+Place AlexDogPos.py, AlexsDogPosToolui.py and spike_legs3.png in Server directory
+To run it type: <pre>python AlexDogPos.py</pre> 
   
 <hr />
-<h3>STL files</h3>
+<h2>STL files</h2>
   <pre>
 rear board.STL              STL file of rear board courtesy of Freenove  
 tail-servo-mount-mg90s.stl  STL file for tail servo mount courtesy of Simon Khoury   
@@ -20,39 +22,65 @@ SpikeHead.stl               STL file for an alternative head
 </pre>  
 <hr />
    
-<h3>Local wireless keyboard and wagging tail  </h3>
-Copy lclkbd.py control.py and actions.py to Server directory  
-Connect wireless keyboard and run lclkbd.py  
-NOTE: THERE IS NO TIME OUT ON THE SERVOS UNLIKE RUNNING THE SERVER  
-you may need to adjust the value for self.TailCorrection in control.py to make your dog's tail start straight  
-  
-Commands (easy enough to remap to suit your own keyboard)  
-HEAD  
-A or mouse down: move head down  
-Q or mouse up: move head up  
-MOVEMENT  
-Up Arrow: forward  
-Down Arrow: backward  
-Left Arrow: turn left  
-Right Arrow: turn right  
-Z: crab left  
-X: crab right  
-T: tail wagging on/off  
-W: woof (beep)  
-ACTIONS  
-freenove predefined actions  
-1: push_ups   
-2: helloOne   
-3: hand  
-4: coquettish  
-5: swim  
-6: yoga  
-7: helloTwo  
-actions I have defined  
-P: lets_play  
-R: relax  
-S: sit  
-PROG FUNCTIONS  
-Win/cmd: close program (3 beeps)  
-END: shutdown_pi (1 beep)  
-PrtScn/SysRq: reboot_pi(2 beeps)  
+<h2>Local wireless keyboard, wagging tail and very crude autonomous movement </h2>
+
+The code has a dependancy for evdev (https://python-evdev.readthedocs.io/en/latest/): 
+
+<ul>sudo pip3 install evdev</ul>
+
+This code was written for the "Rii i8S Mini Keyboard" available from Amazon
+
+evdev sees this keyboard as 4 separate devices: a keyboard, a mouse, a consumer control and a system control
+
+If you wish to use this code with other controllers or keyboards you may well have to comment out some of the devices and remap some of the keyboard associations
+
+Drop the following 4 files into the Server directory on the Pi. You may want to backup your copies of Action.py and Control.py first!
+
+<pre>
+lclkbd.py          the keyboard reading routine - this is the one you run: sudo python lclkbd.py
+Control.py         modified version of the freenove file to wagging tail
+Action.py          additional actions
+wander.py          a quick stab at autonomous movement code - needs quite a bit of tinkering
+                   try adjusting these values
+                      aheadClear = 50
+                      obstDanger = 35
+</pre>
+<h3>Keyboard commands</h3>
+<pre>
+HEAD
+A or mouse down  Head down
+Q or mouse up    Head up
+<br />
+MOVEMENT
+Up arrow        Move forward
+Down arrow      Move backward
+Left arrow      Turn left
+Right arrow     Turn right
+Z               Sideways left
+X               Sideways right
+ 
+Tab             Start/Stop autonomous movement
+ 
+T              tail wagging on/off
+W              woof (beep)
+R              Relax
+ 
+1 to 0         Speed
+ 
+ACTIONS
+F1             push_ups
+F2             helloOne
+F3             hand
+F4             coquettish
+F5             swim
+F6             yoga
+F7             helloTwo
+actions I have defined
+P             lets_play
+S             sit
+ 
+PROG FUNCTIONS
+Win/cmd       close program (3 beeps)
+END           shutdown_pi (1 beep)
+PrtScn/SysRq  reboot_pi(2 beeps)
+</pre>
