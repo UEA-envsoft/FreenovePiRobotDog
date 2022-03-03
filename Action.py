@@ -1,12 +1,16 @@
 import math
 from Control import *
 from Servo import *
+
 class Action:
-    def __init__(self):
+    def __init__(self,kb = None):
         self.servo=Servo()
         self.control=Control()
-
-
+        self.lkb=kb
+    
+    def woof(self, startAngle=90):
+        if self.lkb is not None: self.lkb.woof(startAngle)        
+        
     #NEW ACTIONS AND TRANSITION METHOD
 
     # to move from current position to desired position
@@ -37,7 +41,7 @@ class Action:
 
     def sit(self):
         self.transition([[-37,121,0],[-11,81,0],[-11,81,0],[-37,121,0]])
-
+        
     def lets_play(self):
         recallWag = self.control.tailWagging
         self.control.tailWagging = True
@@ -47,6 +51,7 @@ class Action:
         for i in range(90,160):
             self.servo.setServoAngle(15,i)
             time.sleep(0.02)
+        self.woof(160)
         # print("tailwag")
         for j in range(400):
             time.sleep(0.005)
@@ -60,7 +65,8 @@ class Action:
         # print("head up a bit")
         for i in range(90,110):
             self.servo.setServoAngle(15,i)
-            time.sleep(0.02)  
+            time.sleep(0.02)
+        self.woof(110)
         # print("final tailwag")
         for j in range (400):
             time.sleep(0.005)
@@ -438,7 +444,6 @@ class Action:
             self.control.run()
             time.sleep(0.02)
         time.sleep(1)
-    
         
 if __name__=='__main__':
     action=Action()  
