@@ -58,7 +58,9 @@ Left arrow      Turn left
 Right arrow     Turn right
 Z               Sideways left
 X               Sideways right
- 
+Volume up       Increase height
+Volume down     Decrease height
+<br />
 Tab             Start/Stop autonomous movement
  
 T              tail wagging on/off
