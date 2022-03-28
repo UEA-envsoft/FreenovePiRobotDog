@@ -23,6 +23,7 @@ SpikeHead.stl               STL file for an alternative head
 <h3>STL files for Cat head and tail courtesy of Thomas Jaeger</h3>
 <pre>
 cat v6.stl                 STL file for cat head
+Körper1.stl                STL file for head mounting
 PiCamAngle.STL
 tail.stl                   STL file for cat tail
 </pre>
