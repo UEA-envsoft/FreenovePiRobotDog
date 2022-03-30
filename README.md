@@ -20,12 +20,13 @@ rear board.STL              STL file of rear board courtesy of Freenove
 tail-servo-mount-mg90s.stl  STL file for tail servo mount courtesy of Simon Khoury   
 SpikeHead.stl               STL file for an alternative head
 </pre>  
-<h3>STL files for Cat head and tail courtesy of Thomas Jaeger</h3>
+<h3>STL files for Cat head, tail and body cover courtesy of Thomas Jaeger</h3>
 <pre>
 cat v6.stl                 STL file for cat head
 Körper1.stl                STL file for head mounting
 PiCamAngle.STL
 tail.stl                   STL file for cat tail
+cover.stl                  STL file for body cover
 </pre>
 <hr />
    
